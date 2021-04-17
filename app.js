@@ -81,17 +81,20 @@ const filterBtns = document.querySelectorAll(".filter-btn");
 
 // load items
 window.addEventListener("DOMContentLoaded", () => {
-	displayMenuItem(menu);
+	displayMenuItems(menu);
 });
 
 // filter items
 filterBtns.forEach(btn => {
   btn.addEventListener("click", (e) => {
-    console.log(e.currentTarget.dataset.item);
+    const category = e.currentTarget.dataset.item;
+    const menuCategory = menu.filter(menuItem => menuItem.category === category && menuItem);
+
+    displayMenuItems(category === "all" ? menu : menuCategory);
   });
 });
 
-function displayMenuItem(menuItems) {
+function displayMenuItems(menuItems) {
   let displayMenu = menuItems.map( item => {
 
     return `

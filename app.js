@@ -125,7 +125,7 @@ function displayMenuButtons() {
 
   const categoryBtns = categories.map(category => {
     return `
-      <button 
+      <button
         class="filter-btn"
         data-item=${category}
         type="button"
